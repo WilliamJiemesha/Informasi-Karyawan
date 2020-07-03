@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainMenuActivity">
+
+    <Button
+        android:id="@+id/informasikaryawanbutton"
+        android:layout_width="300dp"
+        android:onClick="InformasiKaryawanOnClick"
+        android:layout_height="wrap_content"
+        android:text="Informasi Karyawan"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="250dp"
+        />
+
+    <Button
+        android:id="@+id/absensikaryawan"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Absensi Karyawan"
+        app:layout_constraintTop_toBottomOf="@+id/informasikaryawanbutton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <Button
+        android:id="@+id/gajikaryawan"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Gaji Karyawan"
+        app:layout_constraintTop_toBottomOf="@+id/absensikaryawan"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <Button
+        android:id="@+id/kasbon"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Kasbon"
+        app:layout_constraintTop_toBottomOf="@+id/gajikaryawan"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

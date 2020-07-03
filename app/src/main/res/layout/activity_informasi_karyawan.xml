@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InformasiKaryawan">
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/TableLayoutTesting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:id="@+id/TitleBar"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/TitleName"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:clickable="true"
+                android:text="ID"
+                android:textAlignment="center"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/TitleAge"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="Nama"
+                android:textAlignment="center"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/TitleHeight"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="Tanggal Masuk"
+                android:textAlignment="center"
+                android:textSize="18dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/IDContent1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="---"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/NamaContent1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="-"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/TanggalContent1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="--"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/IDContent2"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="---"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/NamaContent2"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="-"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/TanggalContent2"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="--"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/IDContent3"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="---"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/NamaContent3"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="-"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/TanggalContent3"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="--"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/IDContent4"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="---"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/NamaContent4"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="-"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/TanggalContent4"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="--"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/IDContent5"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="---"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/NamaContent5"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="-"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/TanggalContent5"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="--"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/IDContent6"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="---"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/NamaContent6"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="-"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/TanggalContent6"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="--"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/IDContent7"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="---"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/NamaContent7"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="-"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/TanggalContent7"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="--"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/IDContent8"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="---"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/NamaContent8"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="-"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/TanggalContent8"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="--"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/IDContent9"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="---"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/NamaContent9"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="-"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/TanggalContent9"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="--"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/IDContent10"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="---"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/NamaContent10"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="-"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/TanggalContent10"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:text="--"
+                android:textAlignment="center"
+                android:textSize="12dp" />
+        </TableRow>
+
+        android:id="@+id/ButtonTesting"
+        app:layout_constraintTop_toBottomOf="@id/TanggalContent10"
+
+    </TableLayout>
+
+    <Switch
+        android:id="@+id/EditChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="SwitchEditChecked"
+        android:text="Edit"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TableLayoutTesting" />
+
+    <EditText
+        android:id="@+id/edittextname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Nama"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EditChecked" />
+
+    <EditText
+        android:id="@+id/edittexttanggalmasuk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Tanggal Masuk"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edittextname" />
+
+    <Button
+        android:id="@+id/buttonadd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="ADD"
+        android:textSize="14dp"
+        android:onClick="ButtonAddOnClick"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edittexttanggalmasuk" />
+
+    <EditText
+        android:id="@+id/edittextidfordeletion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:hint="Masukkan ID Untuk dihapus"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonadd" />
+
+    <Button
+        android:id="@+id/buttondelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="DELETE"
+        android:textSize="14dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edittextidfordeletion" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nextpagebutton"
+        android:text=">"
+        app:layout_constraintTop_toBottomOf="@id/TableLayoutTesting"
+        app:layout_constraintRight_toRightOf="parent"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/previouspagebutton"
+        android:text="<"
+        app:layout_constraintTop_toBottomOf="@id/TableLayoutTesting"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
