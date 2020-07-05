@@ -1,14 +1,18 @@
 package com.example.payrollproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class InformasiKaryawan extends AppCompatActivity {
     TextView myTextView;
@@ -16,6 +20,9 @@ public class InformasiKaryawan extends AppCompatActivity {
     Switch mySwitch;
     EditText myEditText;
     Button myButton;
+    int pageCountStartAt;
+    int pageCountEndAt;
+    int firstDigit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,27 +44,59 @@ public class InformasiKaryawan extends AppCompatActivity {
         myButton.setVisibility(View.INVISIBLE);
         myButton = (Button) findViewById(R.id.buttondelete);
         myButton.setVisibility(View.INVISIBLE);
-
-        //InformasiKaryawan.clearDatabase("informasi_karyawan");
+        myButton = (Button) findViewById(R.id.nextpagebutton);
+        myButton.setVisibility(View.INVISIBLE);
+        myButton = (Button) findViewById(R.id.previouspagebutton);
+        myButton.setVisibility(View.INVISIBLE);
+        //ForPages
+        firstDigit = 0;
+        checkCountforButtonNextandPrevious();
+        //InformasiKaryawan.clearDatabase("informasi_karyawan"); <-- For Reset Database if needed. Will crash on start application.
 
         //Getting from DB and Insert into textviews
+        Refresh();
+
+        //Toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        setTitle("Informasi Karyawan");
+
+    }
+
+    public void checkCountforButtonNextandPrevious() {
         Cursor cs = InformasiKaryawan.fetchDatabaseAll();
-        if (cs.getCount() != 0) {
-            for (int i = 0; i < cs.getCount(); i++) {
-                Cursor ct = InformasiKaryawan.fetchDatabaseBasedOnId(i + 1);
-                ct.moveToFirst();
 
-                String ID = ct.getString(0);
-                String NAME = ct.getString(1);
-                String DATE = ct.getString(2);
-
-                ChangeTextView(String.valueOf(i + 1), ID, NAME, DATE);
-
+        //Page Next
+        if (firstDigit != 0) {
+            pageCountStartAt = firstDigit * 10;
+            int save = cs.getCount() / 10;
+            if (save < firstDigit) {
+                pageCountEndAt = (firstDigit + 1) * 10;
+            } else {
+                pageCountEndAt =  firstDigit * 10 + (cs.getCount() % 10);
+                myButton = (Button) findViewById(R.id.nextpagebutton);
+                myButton.setVisibility(View.INVISIBLE);
+            }
+        } else {
+            pageCountStartAt = 0;
+            if (cs.getCount() > 10) {
+                pageCountEndAt = 10;
+                myButton = (Button) findViewById(R.id.nextpagebutton);
+                myButton.setVisibility(View.VISIBLE);
+            } else {
+                pageCountEndAt = cs.getCount();
             }
         }
 
-    }
-    public void checkCountforButtonNextandPrevious(){
+        //Page Previous
+        if (firstDigit > 0) {
+            myButton = (Button) findViewById(R.id.previouspagebutton);
+            myButton.setVisibility(View.VISIBLE);
+        } else {
+            myButton = (Button) findViewById(R.id.previouspagebutton);
+            myButton.setVisibility(View.INVISIBLE);
+        }
+        Refresh();
 
     }
 
@@ -241,10 +280,26 @@ public class InformasiKaryawan extends AppCompatActivity {
                 InformasiKaryawan.insertDatabase(String.valueOf(cu.getCount() + 1), anotherEditText.getText().toString(), newEditText.getText().toString());
             }
         }
+
+        checkCountforButtonNextandPrevious();
         //Getting from DB and Insert into textviews
+        Refresh();
+
+    }
+
+    public void PreviousOnClick(View view) {
+        Cursor cs = InformasiKaryawan.fetchDatabaseAll();
+        if (cs.getCount() > 10) {
+            firstDigit--;
+        }
+        checkCountforButtonNextandPrevious();
+    }
+
+    public void Refresh() {
+        Clear();
         Cursor cs = InformasiKaryawan.fetchDatabaseAll();
         if (cs.getCount() != 0) {
-            for (int i = 0; i < cs.getCount(); i++) {
+            for (int i = pageCountStartAt; i < pageCountEndAt; i++) {
                 Cursor ct = InformasiKaryawan.fetchDatabaseBasedOnId(i + 1);
                 ct.moveToFirst();
 
@@ -252,10 +307,44 @@ public class InformasiKaryawan extends AppCompatActivity {
                 String NAME = ct.getString(1);
                 String DATE = ct.getString(2);
 
-                ChangeTextView(String.valueOf(i + 1), ID, NAME, DATE);
+                ChangeTextView(String.valueOf((i % 10) + 1), ID, NAME, DATE);
 
             }
+        } else {
+            Clear();
         }
-
     }
+
+    public void Clear(){
+        for (int i = 0; i < 10; i++){
+            ChangeTextView(String.valueOf(i + 1), "---", "-", "--");
+        }
+    }
+    public void NextOnClick(View view) {
+        Cursor cs = InformasiKaryawan.fetchDatabaseAll();
+        if (cs.getCount() > 10) {
+            firstDigit++;
+        }
+        checkCountforButtonNextandPrevious();
+    }
+
+    //Toolbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_add_only, menu);
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_add:
+                Toast.makeText(this, "Memes", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+
 }

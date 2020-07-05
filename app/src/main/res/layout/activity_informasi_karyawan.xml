@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".InformasiKaryawan">
 
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/toolbar"/>
+
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/TableLayoutTesting"
         android:layout_width="match_parent"
@@ -14,7 +18,7 @@
         android:padding="5dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <TableRow
             android:id="@+id/TitleBar"
@@ -435,14 +439,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/nextpagebutton"
-        android:text=">"
+        android:onClick="NextOnClick"
+        android:text="@string/Right"
         app:layout_constraintTop_toBottomOf="@id/TableLayoutTesting"
         app:layout_constraintRight_toRightOf="parent"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/previouspagebutton"
-        android:text="<"
+        android:text="@string/Left"
+        android:onClick="PreviousOnClick"
         app:layout_constraintTop_toBottomOf="@id/TableLayoutTesting"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
