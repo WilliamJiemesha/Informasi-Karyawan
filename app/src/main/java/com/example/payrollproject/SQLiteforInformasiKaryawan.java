@@ -11,15 +11,7 @@ import java.util.ArrayList;
 
 public class SQLiteforInformasiKaryawan extends SQLiteOpenHelper {
     public static final String dbName = "PayrollProject";
-    public static final String INFORMASIKARYAWAN_TABLE_NAME = "informasi_karyawan";
-    public static final String INFORMASIKARYAWAN_COLUMN_ID = "id";
-    public static final String INFORMASIKARYAWAN_COLUMN_NAME = "nama_karyawan";
-    public static final String INFORMASIKARYAWAN_COLUMN_DATE = "tanggal_masuk";
-
-    public static final int VersionControl = 1;
-
-
-
+    //THIS DATABASE CLASS IS FOR INFORMASI KARYAWAN
 
     public SQLiteforInformasiKaryawan(Context context) {
         super(context, dbName , null, 1);
@@ -27,7 +19,7 @@ public class SQLiteforInformasiKaryawan extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table informasi_karyawan" + "(id text primary key, nama_karyawan text, tanggal_masuk text)");
+        db.execSQL("create table informasi_karyawan" + "(id text primary key, nama_karyawan text, tanggal_masuk text, aktif int)");
     }
 
     @Override
@@ -36,26 +28,25 @@ public class SQLiteforInformasiKaryawan extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void clearDatabase(String TABLE_NAME) {
+    public void clearDatabase() {
         SQLiteDatabase db = this.getWritableDatabase();
-        String clearDBQuery = "DELETE FROM "+TABLE_NAME;
-        db.execSQL(clearDBQuery);
-        db.execSQL("create table informasi_karyawan" + "(id text primary key, nama_karyawan text, tanggal_masuk text)");
-
+        db.execSQL("DROP TABLE informasi_karyawan");
+        db.execSQL("create table informasi_karyawan" + "(id text primary key, nama_karyawan text, tanggal_masuk text, aktif int)");
     }
 
-    public void insertDatabase(String id, String name, String date){
+    public void insertDatabase(String id, String name, String date, int active){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("id", id);
         contentValues.put("nama_karyawan", name);
         contentValues.put("tanggal_masuk", date);
+        contentValues.put("aktif", active);
         db.insert("informasi_karyawan", null, contentValues);
     }
 
     public Cursor fetchDatabaseBasedOnId(int id){
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from informasi_karyawan where id = "+id+"", null );
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res =  db.rawQuery( "select * from informasi_karyawan where id = "+id+" and aktif = 1", null );
         return res;
     }
 
@@ -64,6 +55,14 @@ public class SQLiteforInformasiKaryawan extends SQLiteOpenHelper {
         Cursor res =  db.rawQuery( "select * from informasi_karyawan", null );
         return res;
     }
-
+    public Cursor fetchDatabaseAllActive(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from informasi_karyawan", null );
+        return res;
+    }
+    public void DeleteKaryawan(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        db.execSQL("UPDATE informasi_karyawan SET aktif = 0 WHERE id = "+ id);
+    }
 
 }

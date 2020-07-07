@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddKaryawan"></activity>
+        <activity android:name=".DeleteKaryawan"/>
+        <activity android:name=".AbsensiKaryawan" />
+        <activity android:name=".AddKaryawan" />
         <activity android:name=".InformasiKaryawan" />
         <activity android:name=".MainMenuActivity" />
         <activity android:name=".MainActivity">

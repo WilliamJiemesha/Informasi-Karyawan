@@ -3,8 +3,10 @@ package com.example.payrollproject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +15,8 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class InformasiKaryawan extends AppCompatActivity {
     TextView myTextView;
@@ -30,20 +34,7 @@ public class InformasiKaryawan extends AppCompatActivity {
         setContentView(R.layout.activity_informasi_karyawan);
         //Declare Objects
         InformasiKaryawan = new SQLiteforInformasiKaryawan(this);
-        mySwitch = (Switch) findViewById(R.id.EditChecked);
-
         //Making invisible for onCreate
-        myEditText = (EditText) findViewById(R.id.edittextname);
-        myEditText.setVisibility(View.INVISIBLE);
-        myEditText = (EditText) findViewById(R.id.edittextidfordeletion);
-        myEditText.setVisibility(View.INVISIBLE);
-        myEditText = (EditText) findViewById(R.id.edittexttanggalmasuk);
-        myEditText.setVisibility(View.INVISIBLE);
-
-        myButton = (Button) findViewById(R.id.buttonadd);
-        myButton.setVisibility(View.INVISIBLE);
-        myButton = (Button) findViewById(R.id.buttondelete);
-        myButton.setVisibility(View.INVISIBLE);
         myButton = (Button) findViewById(R.id.nextpagebutton);
         myButton.setVisibility(View.INVISIBLE);
         myButton = (Button) findViewById(R.id.previouspagebutton);
@@ -52,6 +43,7 @@ public class InformasiKaryawan extends AppCompatActivity {
         firstDigit = 0;
         checkCountforButtonNextandPrevious();
         //InformasiKaryawan.clearDatabase("informasi_karyawan"); <-- For Reset Database if needed. Will crash on start application.
+
 
         //Getting from DB and Insert into textviews
         Refresh();
@@ -64,7 +56,7 @@ public class InformasiKaryawan extends AppCompatActivity {
     }
 
     public void checkCountforButtonNextandPrevious() {
-        Cursor cs = InformasiKaryawan.fetchDatabaseAll();
+        Cursor cs = InformasiKaryawan.fetchDatabaseAllActive();
 
         //Page Next
         if (firstDigit != 0) {
@@ -73,7 +65,7 @@ public class InformasiKaryawan extends AppCompatActivity {
             if (save < firstDigit) {
                 pageCountEndAt = (firstDigit + 1) * 10;
             } else {
-                pageCountEndAt =  firstDigit * 10 + (cs.getCount() % 10);
+                pageCountEndAt = firstDigit * 10 + (cs.getCount() % 10);
                 myButton = (Button) findViewById(R.id.nextpagebutton);
                 myButton.setVisibility(View.INVISIBLE);
             }
@@ -106,189 +98,150 @@ public class InformasiKaryawan extends AppCompatActivity {
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent1);
                 myTextView.setText(IDContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent1);
                 myTextView.setText(NamaContent);
+                myTextView.setGravity(Gravity.CENTER);
 
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent1);
                 myTextView.setText(TanggalContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 break;
             case ("2"):
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent2);
                 myTextView.setText(IDContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent2);
                 myTextView.setText(NamaContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent2);
                 myTextView.setText(TanggalContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 break;
             case ("3"):
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent3);
                 myTextView.setText(IDContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent3);
                 myTextView.setText(NamaContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent3);
                 myTextView.setText(TanggalContent);
+                myTextView.setGravity(Gravity.CENTER);
                 break;
             case ("4"):
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent4);
                 myTextView.setText(IDContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent4);
                 myTextView.setText(NamaContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent4);
                 myTextView.setText(TanggalContent);
+                myTextView.setGravity(Gravity.CENTER);
                 break;
             case ("5"):
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent5);
                 myTextView.setText(IDContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent5);
                 myTextView.setText(NamaContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent5);
                 myTextView.setText(TanggalContent);
+                myTextView.setGravity(Gravity.CENTER);
                 break;
             case ("6"):
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent6);
                 myTextView.setText(IDContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent6);
                 myTextView.setText(NamaContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent6);
                 myTextView.setText(TanggalContent);
+                myTextView.setGravity(Gravity.CENTER);
                 break;
             case ("7"):
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent7);
                 myTextView.setText(IDContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent7);
                 myTextView.setText(NamaContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent7);
                 myTextView.setText(TanggalContent);
+                myTextView.setGravity(Gravity.CENTER);
                 break;
             case ("8"):
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent8);
                 myTextView.setText(IDContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent8);
                 myTextView.setText(NamaContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent8);
                 myTextView.setText(TanggalContent);
+                myTextView.setGravity(Gravity.CENTER);
                 break;
             case ("9"):
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent9);
                 myTextView.setText(IDContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent9);
                 myTextView.setText(NamaContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent9);
                 myTextView.setText(TanggalContent);
+                myTextView.setGravity(Gravity.CENTER);
                 break;
             case ("10"):
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent10);
                 myTextView.setText(IDContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent10);
                 myTextView.setText(NamaContent);
-
+                myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent10);
                 myTextView.setText(TanggalContent);
+                myTextView.setGravity(Gravity.CENTER);
                 break;
 
 
         }
     }
 
-
-    public void SwitchEditChecked(View view) {
-        if (mySwitch.isChecked()) {
-            myEditText = (EditText) findViewById(R.id.edittextname);
-            myEditText.setVisibility(View.VISIBLE);
-            myEditText = (EditText) findViewById(R.id.edittextidfordeletion);
-            myEditText.setVisibility(View.VISIBLE);
-            myEditText = (EditText) findViewById(R.id.edittexttanggalmasuk);
-            myEditText.setVisibility(View.VISIBLE);
-
-            myButton = (Button) findViewById(R.id.buttonadd);
-            myButton.setVisibility(View.VISIBLE);
-            myButton = (Button) findViewById(R.id.buttondelete);
-            myButton.setVisibility(View.VISIBLE);
-
-        } else {
-            myEditText = (EditText) findViewById(R.id.edittextname);
-            myEditText.setVisibility(View.INVISIBLE);
-            myEditText = (EditText) findViewById(R.id.edittextidfordeletion);
-            myEditText.setVisibility(View.INVISIBLE);
-            myEditText = (EditText) findViewById(R.id.edittexttanggalmasuk);
-            myEditText.setVisibility(View.INVISIBLE);
-
-            myButton = (Button) findViewById(R.id.buttonadd);
-            myButton.setVisibility(View.INVISIBLE);
-            myButton = (Button) findViewById(R.id.buttondelete);
-            myButton.setVisibility(View.INVISIBLE);
-        }
-    }
-
-    public void ButtonAddOnClick(View view) {
-        EditText anotherEditText = (EditText) findViewById(R.id.edittextname);
-        if (anotherEditText.getText().toString().equals("")) {
-        } else {
-            EditText newEditText = (EditText) findViewById(R.id.edittexttanggalmasuk);
-            if (newEditText.getText().toString().equals("")) {
-            } else {
-                Cursor cu = InformasiKaryawan.fetchDatabaseAll();
-                InformasiKaryawan.insertDatabase(String.valueOf(cu.getCount() + 1), anotherEditText.getText().toString(), newEditText.getText().toString());
-            }
-        }
-
-        checkCountforButtonNextandPrevious();
-        //Getting from DB and Insert into textviews
-        Refresh();
-
-    }
-
     public void PreviousOnClick(View view) {
-        Cursor cs = InformasiKaryawan.fetchDatabaseAll();
+        Cursor cs = InformasiKaryawan.fetchDatabaseAllActive();
         if (cs.getCount() > 10) {
             firstDigit--;
         }
@@ -296,32 +249,51 @@ public class InformasiKaryawan extends AppCompatActivity {
     }
 
     public void Refresh() {
-        Clear();
-        Cursor cs = InformasiKaryawan.fetchDatabaseAll();
-        if (cs.getCount() != 0) {
-            for (int i = pageCountStartAt; i < pageCountEndAt; i++) {
-                Cursor ct = InformasiKaryawan.fetchDatabaseBasedOnId(i + 1);
-                ct.moveToFirst();
-
-                String ID = ct.getString(0);
-                String NAME = ct.getString(1);
-                String DATE = ct.getString(2);
-
-                ChangeTextView(String.valueOf((i % 10) + 1), ID, NAME, DATE);
-
-            }
-        } else {
+        try {
             Clear();
+            Cursor cs = InformasiKaryawan.fetchDatabaseAllActive();
+            if (cs.getCount() != 0) {
+                //for (int i = pageCountStartAt; i < pageCountEndAt; i++) {
+                int i = pageCountStartAt;
+                int k = pageCountEndAt;
+                int j = pageCountStartAt;
+                while (j < k) {
+                    try {
+                        Cursor ct = InformasiKaryawan.fetchDatabaseBasedOnId(i + 1);
+                        ct.moveToFirst();
+
+                        String ID = ct.getString(0);
+                        String NAME = ct.getString(1);
+                        String DATE = ct.getString(2);
+
+                        ChangeTextView(String.valueOf((j % 10) + 1), ID, NAME, DATE);
+                        j++;
+                    } catch (Exception ex) {
+                        if (i > cs.getCount()) {
+                            j = k;
+                        }
+                    }
+                    i++;
+
+                }
+
+                //}
+            } else {
+                Clear();
+            }
+        } catch (Exception ex) {
+
         }
     }
 
-    public void Clear(){
-        for (int i = 0; i < 10; i++){
+    public void Clear() {
+        for (int i = 0; i < 10; i++) {
             ChangeTextView(String.valueOf(i + 1), "---", "-", "--");
         }
     }
+
     public void NextOnClick(View view) {
-        Cursor cs = InformasiKaryawan.fetchDatabaseAll();
+        Cursor cs = InformasiKaryawan.fetchDatabaseAllActive();
         if (cs.getCount() > 10) {
             firstDigit++;
         }
@@ -334,11 +306,13 @@ public class InformasiKaryawan extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_add_only, menu);
         return true;
     }
+
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.action_add:
-                Toast.makeText(this, "Memes", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, AddKaryawan.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -346,5 +320,81 @@ public class InformasiKaryawan extends AppCompatActivity {
     }
 
 
+    public void TextViewOnClick(View view) {
+        DeleteKaryawan dltkrywn = new DeleteKaryawan();
+        Intent intent = new Intent(this, DeleteKaryawan.class);
+        switch (view.getId()) {
+            case (R.id.NamaContent1):
+                TextView t1 = findViewById(R.id.IDContent1);
+                if (t1.getText().toString() != "---") {
+                    intent.putExtra("id", t1.getText().toString());
+                    startActivity(intent);
+                }
+                break;
+            case (R.id.NamaContent2):
+                TextView t2 = findViewById(R.id.IDContent2);
+                if (t2.getText().toString() != "---") {
+                    intent.putExtra("id", t2.getText().toString());
+                    startActivity(intent);
+                }
+                break;
+            case (R.id.NamaContent3):
+                TextView t3 = findViewById(R.id.IDContent3);
+                if (t3.getText().toString() != "---") {
+                    intent.putExtra("id", t3.getText().toString());
+                    startActivity(intent);
+                }
+                break;
+            case (R.id.NamaContent4):
+                TextView t4 = findViewById(R.id.IDContent4);
+                if (t4.getText().toString() != "---") {
+                    intent.putExtra("id", t4.getText().toString());
+                    startActivity(intent);
+                }
+                break;
+            case (R.id.NamaContent5):
+                TextView t5 = findViewById(R.id.IDContent5);
+                if (t5.getText().toString() != "---") {
+                    intent.putExtra("id", t5.getText().toString());
+                    startActivity(intent);
+                }
+                break;
+            case (R.id.NamaContent6):
+                TextView t6 = findViewById(R.id.IDContent6);
+                if (t6.getText().toString() != "---") {
+                    intent.putExtra("id", t6.getText().toString());
+                    startActivity(intent);
+                }
+                break;
+            case (R.id.NamaContent7):
+                TextView t7 = findViewById(R.id.IDContent7);
+                if (t7.getText().toString() != "---") {
+                    intent.putExtra("id", t7.getText().toString());
+                    startActivity(intent);
+                }
+                break;
+            case (R.id.NamaContent8):
+                TextView t8 = findViewById(R.id.IDContent8);
+                if (t8.getText().toString() != "---") {
+                    intent.putExtra("id", t8.getText().toString());
+                    startActivity(intent);
+                }
+                break;
+            case (R.id.NamaContent9):
+                TextView t9 = findViewById(R.id.IDContent9);
+                if (t9.getText().toString() != "---") {
+                    intent.putExtra("id", t9.getText().toString());
+                    startActivity(intent);
+                }
+                break;
+            case (R.id.NamaContent10):
+                TextView t10 = findViewById(R.id.IDContent10);
+                if (t10.getText().toString() != "---") {
+                    intent.putExtra("id", t10.getText().toString());
+                    startActivity(intent);
+                }
+                break;
+        }
 
+    }
 }

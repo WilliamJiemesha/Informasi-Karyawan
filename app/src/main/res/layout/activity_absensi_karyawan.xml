@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InformasiKaryawan">
+    tools:context=".AbsensiKaryawan">
 
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
-
+        layout="@layout/toolbar"
+        android:id="@+id/toolbar"/>
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/TableLayoutTesting"
         android:layout_width="match_parent"
@@ -30,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:clickable="true"
-                android:text="ID"
+                android:text="Nama"
 
                 android:textSize="18dp" />
 
@@ -39,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
-                android:text="Nama"
+                android:text="Tanggal"
 
                 android:textSize="18dp" />
 
@@ -48,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
-                android:text="Tanggal Masuk"
+                android:text="Absensi"
 
                 android:textSize="18dp" />
         </TableRow>
@@ -59,20 +58,11 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/IDContent1"
+                android:id="@+id/NamaContent1"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
 
-                android:textSize="12dp" />
-
-            <TextView
-                android:id="@+id/NamaContent1"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginLeft="16dp"
-                android:text="-"
-                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -80,6 +70,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
+                android:text="-"
+                android:onClick="TextViewOnClick"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/JenisAbsensiContent1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="16dp"
                 android:text="--"
 
                 android:textSize="12dp" />
@@ -91,20 +90,11 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/IDContent2"
+                android:id="@+id/NamaContent2"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
 
-                android:textSize="12dp" />
-
-            <TextView
-                android:id="@+id/NamaContent2"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginLeft="16dp"
-                android:text="-"
-                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -112,6 +102,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
+                android:text="-"
+                android:onClick="TextViewOnClick"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/JenisAbsensiContent2"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="16dp"
                 android:text="--"
 
                 android:textSize="12dp" />
@@ -123,20 +122,11 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/IDContent3"
+                android:id="@+id/NamaContent3"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
 
-                android:textSize="12dp" />
-
-            <TextView
-                android:id="@+id/NamaContent3"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginLeft="16dp"
-                android:text="-"
-                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -144,6 +134,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
+                android:text="-"
+                android:onClick="TextViewOnClick"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/JenisAbsensiContent3"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="16dp"
                 android:text="--"
 
                 android:textSize="12dp" />
@@ -155,20 +154,11 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/IDContent4"
+                android:id="@+id/NamaContent4"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
 
-                android:textSize="12dp" />
-
-            <TextView
-                android:id="@+id/NamaContent4"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginLeft="16dp"
-                android:text="-"
-                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -176,6 +166,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
+                android:text="-"
+                android:onClick="TextViewOnClick"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/JenisAbsensiContent4"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="16dp"
                 android:text="--"
 
                 android:textSize="12dp" />
@@ -187,20 +186,11 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/IDContent5"
+                android:id="@+id/NamaContent5"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
 
-                android:textSize="12dp" />
-
-            <TextView
-                android:id="@+id/NamaContent5"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginLeft="16dp"
-                android:text="-"
-                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -208,6 +198,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
+                android:text="-"
+                android:onClick="TextViewOnClick"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/JenisAbsensiContent5"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="16dp"
                 android:text="--"
 
                 android:textSize="12dp" />
@@ -219,20 +218,11 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/IDContent6"
+                android:id="@+id/NamaContent6"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
 
-                android:textSize="12dp" />
-
-            <TextView
-                android:id="@+id/NamaContent6"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginLeft="16dp"
-                android:text="-"
-                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -240,6 +230,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
+                android:text="-"
+                android:onClick="TextViewOnClick"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/JenisAbsensiContent6"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="16dp"
                 android:text="--"
 
                 android:textSize="12dp" />
@@ -251,20 +250,11 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/IDContent7"
+                android:id="@+id/NamaContent7"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
 
-                android:textSize="12dp" />
-
-            <TextView
-                android:id="@+id/NamaContent7"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginLeft="16dp"
-                android:text="-"
-                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -272,6 +262,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
+                android:text="-"
+                android:onClick="TextViewOnClick"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/JenisAbsensiContent7"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="16dp"
                 android:text="--"
 
                 android:textSize="12dp" />
@@ -283,20 +282,11 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/IDContent8"
+                android:id="@+id/NamaContent8"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
 
-                android:textSize="12dp" />
-
-            <TextView
-                android:id="@+id/NamaContent8"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginLeft="16dp"
-                android:text="-"
-                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -304,6 +294,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
+                android:text="-"
+                android:onClick="TextViewOnClick"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/JenisAbsensiContent8"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="16dp"
                 android:text="--"
 
                 android:textSize="12dp" />
@@ -315,20 +314,11 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/IDContent9"
+                android:id="@+id/NamaContent9"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
 
-                android:textSize="12dp" />
-
-            <TextView
-                android:id="@+id/NamaContent9"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginLeft="16dp"
-                android:text="-"
-                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -336,6 +326,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
+                android:text="-"
+                android:onClick="TextViewOnClick"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/JenisAbsensiContent9"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="16dp"
                 android:text="--"
 
                 android:textSize="12dp" />
@@ -347,7 +346,7 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/IDContent10"
+                android:id="@+id/NamaContent10"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
@@ -355,7 +354,7 @@
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/NamaContent10"
+                android:id="@+id/TanggalContent10"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
@@ -364,7 +363,7 @@
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/TanggalContent10"
+                android:id="@+id/JenisAbsensiContent10"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
@@ -374,7 +373,6 @@
         </TableRow>
 
     </TableLayout>
-
     <Button
         android:id="@+id/nextpagebutton"
         android:layout_width="wrap_content"
@@ -392,6 +390,5 @@
         android:text="@string/Left"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/TableLayoutTesting" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
