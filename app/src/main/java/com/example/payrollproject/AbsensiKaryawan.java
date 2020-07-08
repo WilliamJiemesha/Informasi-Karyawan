@@ -20,8 +20,8 @@ public class AbsensiKaryawan extends AppCompatActivity {
     int pageCountEndAt;
     int firstDigit;
     SQLiteforAbsensiKaryawan SQLAbsensi;
-    
-    
+    String[] id;
+    String[] tanggal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,13 +34,14 @@ public class AbsensiKaryawan extends AppCompatActivity {
         myButton.setVisibility(View.INVISIBLE);
         myButton = (Button) findViewById(R.id.previouspagebutton);
         myButton.setVisibility(View.INVISIBLE);
+        firstDigit = 0;
+        SQLAbsensi = new SQLiteforAbsensiKaryawan(this);
 
         //Edit View
         checkCountforButtonNextandPrevious();
 
         //Refresh
         Refresh();
-
     }
 
     //Previous and Next Button
@@ -120,7 +121,7 @@ public class AbsensiKaryawan extends AppCompatActivity {
     public void Refresh() {
         try {
             Clear();
-            Cursor ct = SQLAbsensi.fetchDatabaseAll();
+            Cursor ct = SQLAbsensi.fetchDatabaseAllGroupedNameInsteadofID();
             if (ct.getCount() != 0) {
                 //for (int i = pageCountStartAt; i < pageCountEndAt; i++) {
                 int i = pageCountStartAt;
@@ -129,11 +130,13 @@ public class AbsensiKaryawan extends AppCompatActivity {
                 ct.moveToFirst();
                 while (j < k) {
                     try {
-                        String ID = ct.getString(0);
-                        String NAME = ct.getString(1);
-                        String DATE = ct.getString(2);
+                        String NAME = ct.getString(0);
+                        String DATE = ct.getString(1);
+                        String ABSENSI = ct.getString(2);
 
-                        ChangeTextView(String.valueOf((j % 10) + 1), ID, NAME, DATE);
+                        ChangeTextView(String.valueOf((j % 10) + 1), NAME, DATE, ABSENSI);
+                        id[(j%10)] = ct.getString(3);
+                        tanggal[j%10] = ct.getString(1);
                         j++;
                         ct.moveToNext();
                     } catch (Exception ex) {
@@ -163,7 +166,7 @@ public class AbsensiKaryawan extends AppCompatActivity {
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent1);
                 myTextView.setText(NamaContent);
-                
+
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent1);
                 myTextView.setText(TanggalContent);
@@ -305,5 +308,89 @@ public class AbsensiKaryawan extends AppCompatActivity {
     
     //TextView Middle Clicked
     public void TextViewOnClick(View view) {
+        Intent intent = new Intent(this, EditAbsensi.class);
+        switch (view.getId()) {
+            case (R.id.NamaContent1):
+                TextView t1 = findViewById(R.id.NamaContent1);
+                TextView t = findViewById(R.id.TanggalContent1);
+                if (t1.getText().toString() != "---") {
+                    intent.putExtra("id", id[0]);
+                    intent.putExtra("tanggal", tanggal[0]);
+                    startActivity(intent);
+                }
+                break;
+            case (R.id.NamaContent2):
+                TextView t2 = findViewById(R.id.NamaContent2);
+                if (t2.getText().toString() != "---") {
+                    intent.putExtra("id", id[1]);
+                    intent.putExtra("tanggal", tanggal[1]);
+                    startActivity(intent);
+                }
+                break;
+            case (R.id.NamaContent3):
+                TextView t3 = findViewById(R.id.NamaContent3);
+                if (t3.getText().toString() != "---") {
+                    intent.putExtra("id", id[2]);
+                    intent.putExtra("tanggal", tanggal[2]);
+                    startActivity(intent);
+                }
+                break;
+            case (R.id.NamaContent4):
+                TextView t4 = findViewById(R.id.NamaContent4);
+                if (t4.getText().toString() != "---") {
+                    intent.putExtra("id", id[3]);
+                    intent.putExtra("tanggal", tanggal[3]);
+                    startActivity(intent);
+                }
+                break;
+            case (R.id.NamaContent5):
+                TextView t5 = findViewById(R.id.NamaContent5);
+                if (t5.getText().toString() != "---") {
+                    intent.putExtra("id", id[4]);
+                    intent.putExtra("tanggal", tanggal[4]);
+                    startActivity(intent);
+                }
+                break;
+            case (R.id.NamaContent6):
+                TextView t6 = findViewById(R.id.NamaContent6);
+                if (t6.getText().toString() != "---") {
+                    intent.putExtra("id", id[5]);
+                    intent.putExtra("tanggal", tanggal[5]);
+                    startActivity(intent);
+                }
+                break;
+            case (R.id.NamaContent7):
+                TextView t7 = findViewById(R.id.NamaContent7);
+                if (t7.getText().toString() != "---") {
+                    intent.putExtra("id", id[6]);
+                    intent.putExtra("tanggal", tanggal[6]);
+                    startActivity(intent);
+                }
+                break;
+            case (R.id.NamaContent8):
+                TextView t8 = findViewById(R.id.NamaContent8);
+                if (t8.getText().toString() != "---") {
+                    intent.putExtra("id", id[7]);
+                    intent.putExtra("tanggal", tanggal[7]);
+                    startActivity(intent);
+                }
+                break;
+            case (R.id.NamaContent9):
+                TextView t9 = findViewById(R.id.NamaContent9);
+                if (t9.getText().toString() != "---") {
+                    intent.putExtra("id", id[8]);
+                    intent.putExtra("tanggal", tanggal[8]);
+                    startActivity(intent);
+                }
+                break;
+            case (R.id.NamaContent10):
+                TextView t10 = findViewById(R.id.NamaContent10);
+                if (t10.getText().toString() != "---") {
+                    intent.putExtra("id", id[9]);
+                    intent.putExtra("tanggal", tanggal[9]);
+                    startActivity(intent);
+                }
+                break;
+        }
     }
 }

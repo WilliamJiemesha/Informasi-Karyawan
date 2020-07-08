@@ -8,8 +8,7 @@ import android.view.View;
 
 public class MainMenuActivity extends AppCompatActivity {
     //Intents
-    Intent intentInformasiKaryawan;
-
+    Intent intentInformasiKaryawan, intentAbsensiKaryawan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,12 +16,13 @@ public class MainMenuActivity extends AppCompatActivity {
 
         //Declare Intents
         intentInformasiKaryawan  = new Intent(this, InformasiKaryawan.class);
-
-        setTitle("Choose Category");
+        intentAbsensiKaryawan = new Intent(this, AbsensiKaryawan.class);
+        setTitle("Karyawan Menu");
     }
 
     public void InformasiKaryawanOnClick(View view) {
         startActivity(intentInformasiKaryawan);
     }
 
+    public void AbsensiOnClick(View view) { startActivity(intentAbsensiKaryawan); }
 }

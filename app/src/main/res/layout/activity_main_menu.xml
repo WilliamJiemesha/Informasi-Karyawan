@@ -24,6 +24,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="Absensi Karyawan"
+        android:onClick="AbsensiOnClick"
         app:layout_constraintTop_toBottomOf="@+id/informasikaryawanbutton"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
