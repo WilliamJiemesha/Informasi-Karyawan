@@ -21,8 +21,6 @@ import org.w3c.dom.Text;
 public class InformasiKaryawan extends AppCompatActivity {
     TextView myTextView;
     SQLiteforInformasiKaryawan InformasiKaryawan;
-    Switch mySwitch;
-    EditText myEditText;
     Button myButton;
     int pageCountStartAt;
     int pageCountEndAt;
@@ -251,7 +249,7 @@ public class InformasiKaryawan extends AppCompatActivity {
     public void Refresh() {
         try {
             Clear();
-            Cursor cs = InformasiKaryawan.fetchDatabaseAllActive();
+            Cursor cs = InformasiKaryawan.fetchDatabaseAll();
             if (cs.getCount() != 0) {
                 //for (int i = pageCountStartAt; i < pageCountEndAt; i++) {
                 int i = pageCountStartAt;

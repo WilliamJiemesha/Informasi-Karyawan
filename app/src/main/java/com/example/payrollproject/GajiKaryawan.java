@@ -1,41 +1,53 @@
 package com.example.payrollproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 
-import java.sql.Ref;
-
-//SENDING ID FROM HERE TO ADDABSENSIFORMAFTERCLICKED <---------- IMPORTANT // On The Making
-
-
-public class AddAbsensi extends AppCompatActivity {
-    SQLiteforInformasiKaryawan InformasiKaryawan;
-    Button myButton;
+public class GajiKaryawan extends AppCompatActivity {
     TextView myTextView;
+    SQLiteforGajiKaryawan GajiKaryawan;
+    Button myButton;
     int pageCountStartAt;
     int pageCountEndAt;
     int firstDigit;
+    String[] ID = new String[9];
+    String[] Tanggal = new String[9];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_absensi);
-        setTitle("Pilih Karyawan");
-        myButton = findViewById(R.id.nextpagebutton);
-        myButton.setVisibility(View.INVISIBLE);
+        setContentView(R.layout.activity_gaji_karyawan);
+        GajiKaryawan = new SQLiteforGajiKaryawan(this);
         firstDigit = 0;
-        InformasiKaryawan = new SQLiteforInformasiKaryawan(this);
-        checkCountforButtonNextandPrevious();
-    }
-    public void checkCountforButtonNextandPrevious() {
-        Cursor cs = InformasiKaryawan.fetchDatabaseAllActive();
+        myButton = (Button) findViewById(R.id.nextpagebutton);
+        myButton.setVisibility(View.INVISIBLE);
+        myButton = (Button) findViewById(R.id.previouspagebutton);
+        myButton.setVisibility(View.INVISIBLE);
 
+        checkCountforButtonNextandPrevious();
+        Refresh();
+
+        //Toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        setTitle("Gaji Karyawan");
+    }
+
+
+    public void checkCountforButtonNextandPrevious() {
+        Cursor cs = GajiKaryawan.fetchDatabaseAll();
         //Page Next
         if (firstDigit != 0) {
             pageCountStartAt = firstDigit * 10;
@@ -69,16 +81,17 @@ public class AddAbsensi extends AppCompatActivity {
         Refresh();
 
     }
-    public void ChangeTextView(String inputs, String IDContent, String NamaContent, String TanggalContent) {
+
+    public void ChangeTextView(String inputs, String NamaContent, String GajiContent, String TanggalContent) {
         switch (inputs) {
             case ("1"):
                 //ID
-                myTextView = (TextView) findViewById(R.id.IDContent1);
-                myTextView.setText(IDContent);
-                myTextView.setGravity(Gravity.CENTER);
-                //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent1);
                 myTextView.setText(NamaContent);
+                myTextView.setGravity(Gravity.CENTER);
+                //Nama
+                myTextView = (TextView) findViewById(R.id.GajiContent1);
+                myTextView.setText(GajiContent);
                 myTextView.setGravity(Gravity.CENTER);
 
                 //Tanggal
@@ -88,12 +101,12 @@ public class AddAbsensi extends AppCompatActivity {
                 break;
             case ("2"):
                 //ID
-                myTextView = (TextView) findViewById(R.id.IDContent2);
-                myTextView.setText(IDContent);
-                myTextView.setGravity(Gravity.CENTER);
-                //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent2);
                 myTextView.setText(NamaContent);
+                myTextView.setGravity(Gravity.CENTER);
+                //Nama
+                myTextView = (TextView) findViewById(R.id.GajiContent2);
+                myTextView.setText(GajiContent);
                 myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent2);
@@ -102,12 +115,12 @@ public class AddAbsensi extends AppCompatActivity {
                 break;
             case ("3"):
                 //ID
-                myTextView = (TextView) findViewById(R.id.IDContent3);
-                myTextView.setText(IDContent);
-                myTextView.setGravity(Gravity.CENTER);
-                //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent3);
                 myTextView.setText(NamaContent);
+                myTextView.setGravity(Gravity.CENTER);
+                //Nama
+                myTextView = (TextView) findViewById(R.id.GajiContent3);
+                myTextView.setText(GajiContent);
                 myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent3);
@@ -116,12 +129,12 @@ public class AddAbsensi extends AppCompatActivity {
                 break;
             case ("4"):
                 //ID
-                myTextView = (TextView) findViewById(R.id.IDContent4);
-                myTextView.setText(IDContent);
-                myTextView.setGravity(Gravity.CENTER);
-                //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent4);
                 myTextView.setText(NamaContent);
+                myTextView.setGravity(Gravity.CENTER);
+                //Nama
+                myTextView = (TextView) findViewById(R.id.GajiContent4);
+                myTextView.setText(GajiContent);
                 myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent4);
@@ -130,12 +143,12 @@ public class AddAbsensi extends AppCompatActivity {
                 break;
             case ("5"):
                 //ID
-                myTextView = (TextView) findViewById(R.id.IDContent5);
-                myTextView.setText(IDContent);
-                myTextView.setGravity(Gravity.CENTER);
-                //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent5);
                 myTextView.setText(NamaContent);
+                myTextView.setGravity(Gravity.CENTER);
+                //Nama
+                myTextView = (TextView) findViewById(R.id.GajiContent5);
+                myTextView.setText(GajiContent);
                 myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent5);
@@ -144,12 +157,12 @@ public class AddAbsensi extends AppCompatActivity {
                 break;
             case ("6"):
                 //ID
-                myTextView = (TextView) findViewById(R.id.IDContent6);
-                myTextView.setText(IDContent);
-                myTextView.setGravity(Gravity.CENTER);
-                //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent6);
                 myTextView.setText(NamaContent);
+                myTextView.setGravity(Gravity.CENTER);
+                //Nama
+                myTextView = (TextView) findViewById(R.id.GajiContent6);
+                myTextView.setText(GajiContent);
                 myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent6);
@@ -158,12 +171,12 @@ public class AddAbsensi extends AppCompatActivity {
                 break;
             case ("7"):
                 //ID
-                myTextView = (TextView) findViewById(R.id.IDContent7);
-                myTextView.setText(IDContent);
-                myTextView.setGravity(Gravity.CENTER);
-                //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent7);
                 myTextView.setText(NamaContent);
+                myTextView.setGravity(Gravity.CENTER);
+                //Nama
+                myTextView = (TextView) findViewById(R.id.GajiContent7);
+                myTextView.setText(GajiContent);
                 myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent7);
@@ -172,12 +185,12 @@ public class AddAbsensi extends AppCompatActivity {
                 break;
             case ("8"):
                 //ID
-                myTextView = (TextView) findViewById(R.id.IDContent8);
-                myTextView.setText(IDContent);
-                myTextView.setGravity(Gravity.CENTER);
-                //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent8);
                 myTextView.setText(NamaContent);
+                myTextView.setGravity(Gravity.CENTER);
+                //Nama
+                myTextView = (TextView) findViewById(R.id.GajiContent8);
+                myTextView.setText(GajiContent);
                 myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent8);
@@ -186,12 +199,12 @@ public class AddAbsensi extends AppCompatActivity {
                 break;
             case ("9"):
                 //ID
-                myTextView = (TextView) findViewById(R.id.IDContent9);
-                myTextView.setText(IDContent);
-                myTextView.setGravity(Gravity.CENTER);
-                //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent9);
                 myTextView.setText(NamaContent);
+                myTextView.setGravity(Gravity.CENTER);
+                //Nama
+                myTextView = (TextView) findViewById(R.id.GajiContent9);
+                myTextView.setText(GajiContent);
                 myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent9);
@@ -200,12 +213,12 @@ public class AddAbsensi extends AppCompatActivity {
                 break;
             case ("10"):
                 //ID
-                myTextView = (TextView) findViewById(R.id.IDContent10);
-                myTextView.setText(IDContent);
-                myTextView.setGravity(Gravity.CENTER);
-                //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent10);
                 myTextView.setText(NamaContent);
+                myTextView.setGravity(Gravity.CENTER);
+                //Nama
+                myTextView = (TextView) findViewById(R.id.GajiContent10);
+                myTextView.setText(GajiContent);
                 myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent10);
@@ -218,7 +231,7 @@ public class AddAbsensi extends AppCompatActivity {
     }
 
     public void PreviousOnClick(View view) {
-        Cursor cs = InformasiKaryawan.fetchDatabaseAllActive();
+        Cursor cs = GajiKaryawan.fetchDatabaseAll();
         if (cs.getCount() > 10) {
             firstDigit--;
         }
@@ -228,23 +241,49 @@ public class AddAbsensi extends AppCompatActivity {
     public void Refresh() {
         try {
             Clear();
-            Cursor cs = InformasiKaryawan.fetchDatabaseAllActive();
+            Cursor cs = GajiKaryawan.fetchDatabaseAll();
             if (cs.getCount() != 0) {
                 //for (int i = pageCountStartAt; i < pageCountEndAt; i++) {
                 int i = pageCountStartAt;
                 int k = pageCountEndAt;
                 int j = pageCountStartAt;
+                Cursor ct = GajiKaryawan.fetchDatabaseAll();
+                //Informasi Karyawan
+
+                SQLiteforInformasiKaryawan SQL = new SQLiteforInformasiKaryawan(this);
+                Cursor cu = SQL.fetchDatabaseAll();
+                cu.moveToFirst();
+
+                //End of InformasiKaryawan
+                ct.moveToFirst();
+                boolean pembenar = false;
                 while (j < k) {
                     try {
-                        Cursor ct = InformasiKaryawan.fetchDatabaseBasedOnId(i + 1);
-                        ct.moveToFirst();
+                        String IDTemp = null;
+                        String TanggalTemp = null;
+                        try {
+                            String strOne = cu.getString(0);
+                            String strTwo = ct.getString(0);
+                            while (!strOne.equals(strTwo)) {
+                                cu.moveToNext();
+                            }
+                            pembenar = true;
+                            IDTemp = strOne;
+                        } catch (Exception ex) {
 
-                        String ID = ct.getString(0);
-                        String NAME = ct.getString(1);
-                        String DATE = ct.getString(2);
+                        }
+                        if (pembenar == true) {
 
-                        ChangeTextView(String.valueOf((j % 10) + 1), ID, NAME, DATE);
-                        j++;
+                            String NAMA = ct.getString(0);
+                            String GAJI = ct.getString(1);
+                            String DATE = ct.getString(2);
+
+                            ChangeTextView(String.valueOf((j % 10) + 1), NAMA, GAJI, DATE);
+                            ID[j % 10] = IDTemp;
+                            Tanggal[j % 10] = DATE;
+                            j++;
+                            ct.moveToNext();
+                        }
                     } catch (Exception ex) {
                         if (i > cs.getCount()) {
                             j = k;
@@ -270,88 +309,109 @@ public class AddAbsensi extends AppCompatActivity {
     }
 
     public void NextOnClick(View view) {
-        Cursor cs = InformasiKaryawan.fetchDatabaseAllActive();
+        Cursor cs = GajiKaryawan.fetchDatabaseAll();
         if (cs.getCount() > 10) {
             firstDigit++;
         }
         checkCountforButtonNextandPrevious();
     }
 
+
+    //Toolbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_add_only, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_add:
+//                Intent intent = new Intent(this, AddKaryawan.class);
+//                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+    
+    //OnClickTextView
     public void TextViewOnClick(View view) {
-        Intent intent = new Intent(this, AddAbsensiFormAfterClicked.class);
+        Intent intent = new Intent(this, DeleteKaryawan.class); // Ganti Bangke
         switch (view.getId()) {
             case (R.id.NamaContent1):
-                TextView t1 = findViewById(R.id.IDContent1);
+                TextView t1 = findViewById(R.id.NamaContent1);
                 if (t1.getText().toString() != "---") {
-                    intent.putExtra("id", t1.getText().toString());
+                    intent.putExtra("id", ID[0]);
                     startActivity(intent);
                 }
                 break;
             case (R.id.NamaContent2):
-                TextView t2 = findViewById(R.id.IDContent2);
+                TextView t2 = findViewById(R.id.NamaContent2);
                 if (t2.getText().toString() != "---") {
-                    intent.putExtra("id", t2.getText().toString());
+                    intent.putExtra("id", ID[1]);
                     startActivity(intent);
                 }
                 break;
             case (R.id.NamaContent3):
-                TextView t3 = findViewById(R.id.IDContent3);
+                TextView t3 = findViewById(R.id.NamaContent3);
                 if (t3.getText().toString() != "---") {
-                    intent.putExtra("id", t3.getText().toString());
+                    intent.putExtra("id", ID[2]);
                     startActivity(intent);
                 }
                 break;
             case (R.id.NamaContent4):
-                TextView t4 = findViewById(R.id.IDContent4);
+                TextView t4 = findViewById(R.id.NamaContent4);
                 if (t4.getText().toString() != "---") {
-                    intent.putExtra("id", t4.getText().toString());
+                    intent.putExtra("id", ID[3]);
                     startActivity(intent);
                 }
                 break;
             case (R.id.NamaContent5):
-                TextView t5 = findViewById(R.id.IDContent5);
+                TextView t5 = findViewById(R.id.NamaContent5);
                 if (t5.getText().toString() != "---") {
-                    intent.putExtra("id", t5.getText().toString());
+                    intent.putExtra("id", ID[4]);
                     startActivity(intent);
                 }
                 break;
             case (R.id.NamaContent6):
-                TextView t6 = findViewById(R.id.IDContent6);
+                TextView t6 = findViewById(R.id.NamaContent6);
                 if (t6.getText().toString() != "---") {
-                    intent.putExtra("id", t6.getText().toString());
+                    intent.putExtra("id", ID[5]);
                     startActivity(intent);
                 }
                 break;
             case (R.id.NamaContent7):
-                TextView t7 = findViewById(R.id.IDContent7);
+                TextView t7 = findViewById(R.id.NamaContent7);
                 if (t7.getText().toString() != "---") {
-                    intent.putExtra("id", t7.getText().toString());
+                    intent.putExtra("id", ID[6]);
                     startActivity(intent);
                 }
                 break;
             case (R.id.NamaContent8):
-                TextView t8 = findViewById(R.id.IDContent8);
+                TextView t8 = findViewById(R.id.NamaContent8);
                 if (t8.getText().toString() != "---") {
-                    intent.putExtra("id", t8.getText().toString());
+                    intent.putExtra("id", ID[7]);
                     startActivity(intent);
                 }
                 break;
             case (R.id.NamaContent9):
-                TextView t9 = findViewById(R.id.IDContent9);
+                TextView t9 = findViewById(R.id.NamaContent9);
                 if (t9.getText().toString() != "---") {
-                    intent.putExtra("id", t9.getText().toString());
+                    intent.putExtra("id", ID[8]);
                     startActivity(intent);
                 }
                 break;
             case (R.id.NamaContent10):
-                TextView t10 = findViewById(R.id.IDContent10);
+                TextView t10 = findViewById(R.id.NamaContent10);
                 if (t10.getText().toString() != "---") {
-                    intent.putExtra("id", t10.getText().toString());
+                    intent.putExtra("id", ID[9]);
                     startActivity(intent);
                 }
                 break;
         }
 
     }
-
+    
 }

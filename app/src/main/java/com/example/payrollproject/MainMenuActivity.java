@@ -8,7 +8,7 @@ import android.view.View;
 
 public class MainMenuActivity extends AppCompatActivity {
     //Intents
-    Intent intentInformasiKaryawan, intentAbsensiKaryawan;
+    Intent intentInformasiKaryawan, intentAbsensiKaryawan, intentGajiKaryawan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +17,7 @@ public class MainMenuActivity extends AppCompatActivity {
         //Declare Intents
         intentInformasiKaryawan  = new Intent(this, InformasiKaryawan.class);
         intentAbsensiKaryawan = new Intent(this, AbsensiKaryawan.class);
+        intentGajiKaryawan = new Intent(this, GajiKaryawan.class);
         setTitle("Karyawan Menu");
     }
 
@@ -25,4 +26,6 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     public void AbsensiOnClick(View view) { startActivity(intentAbsensiKaryawan); }
+
+    public void GajiOnClick(View view) { startActivity(intentGajiKaryawan); }
 }

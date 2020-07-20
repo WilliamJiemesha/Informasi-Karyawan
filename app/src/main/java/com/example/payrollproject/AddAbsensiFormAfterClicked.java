@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -11,11 +12,15 @@ import android.widget.CalendarView;
 import android.widget.EditText;
 
 public class AddAbsensiFormAfterClicked extends AppCompatActivity {
-    String Inputan;
+    SQLiteforAbsensiKaryawan SQLITE;
+    String id, date, Inputan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_absensi_form_after_clicked);
+        Intent intent = getIntent();
+        id = intent.getStringExtra("id");
+        SQLITE = new SQLiteforAbsensiKaryawan(this);
 
         setTitle("Add Absensi");
 
@@ -23,7 +28,7 @@ public class AddAbsensiFormAfterClicked extends AppCompatActivity {
         v = findViewById(R.id.calendarView);
         v.setOnDateChangeListener( new CalendarView.OnDateChangeListener() {
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                String date = dayOfMonth + "-" + month + "-" + year;
+                date = year + "-" + month + "-" + dayOfMonth;
 
                 //Pop up Window Builder
                 AlertDialog.Builder builder = new AlertDialog.Builder(AddAbsensiFormAfterClicked.this);
@@ -41,7 +46,10 @@ public class AddAbsensiFormAfterClicked extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Inputan = input.getText().toString();
-
+                        SQLITE.insertDatabase(id, date, Inputan);
+                        Intent intention = new Intent(AddAbsensiFormAfterClicked.this, AbsensiKaryawan.class);
+                        startActivity(intention);
+                        finish();
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

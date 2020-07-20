@@ -8,8 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+//DELETE DOESNT WORK FOR SOME REASON <---------- IMPORTANT
+
+
 public class EditAbsensi extends AppCompatActivity {
-    SQLiteforAbsensiKaryawan SQLITE;
+    SQLiteforInformasiKaryawan SQLITE;
+    SQLiteforAbsensiKaryawan SQLAB;
     String id;
     String tanggal;
     @Override
@@ -19,14 +23,31 @@ public class EditAbsensi extends AppCompatActivity {
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
         tanggal = intent.getStringExtra("tanggal");
-        SQLITE = new SQLiteforAbsensiKaryawan(this);
+        SQLITE = new SQLiteforInformasiKaryawan(this);
+        SQLAB = new SQLiteforAbsensiKaryawan(this);
 
-        Cursor cs = SQLITE.fetchDatabaseAllBasedOnID(Integer.parseInt(id));
-        String NAME = cs.getString(1);
-        Button myButton = findViewById(R.id.buttondelete);
+        try {
+            Cursor cs = SQLITE.fetchDatabaseBasedOnId(Integer.parseInt(id));
+            cs.moveToFirst();
+            String DATE = cs.getString(1);
+            cs = SQLAB.fetchDatabaseAllBasedOnID(Integer.parseInt(id));
+            cs.moveToFirst();
+            String ABSENSI = cs.getString(2);
+            Button myButton = findViewById(R.id.buttonDelete);
+            myButton.setText("DELETE ABSENSI TANGGAL "+ DATE +", ALASAN: "+ ABSENSI);
+        }catch (Exception ex){
+            String What = ex.toString();
+        }
     }
 
     public void DeleteButtonOnClick(View view) {
-        SQLITE.DeleteAbensi(Integer.parseInt(id), tanggal);
+        try {
+            SQLAB.DeleteAbsensi(Integer.parseInt(id), tanggal);
+            Intent intention = new Intent(this, AbsensiKaryawan.class);
+            startActivity(intention);
+            finish();
+        }catch (Exception ex){
+            String what = ex.toString();
+        }
     }
 }

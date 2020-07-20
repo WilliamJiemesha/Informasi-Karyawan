@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AbsensiKaryawan extends AppCompatActivity {
     TextView myTextView;
@@ -20,8 +21,9 @@ public class AbsensiKaryawan extends AppCompatActivity {
     int pageCountEndAt;
     int firstDigit;
     SQLiteforAbsensiKaryawan SQLAbsensi;
-    String[] id;
-    String[] tanggal;
+    String[] id = new String[9];
+    String[] tanggal = new String[9];
+    String IDTemp, TanggalTemp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,12 +38,9 @@ public class AbsensiKaryawan extends AppCompatActivity {
         myButton.setVisibility(View.INVISIBLE);
         firstDigit = 0;
         SQLAbsensi = new SQLiteforAbsensiKaryawan(this);
-
         //Edit View
         checkCountforButtonNextandPrevious();
 
-        //Refresh
-        Refresh();
     }
 
     //Previous and Next Button
@@ -109,8 +108,8 @@ public class AbsensiKaryawan extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_add:
                 //What happens after menu '+' is Clicked
-
-
+                Intent intention = new Intent(AbsensiKaryawan.this, AddAbsensi.class);
+                startActivity(intention);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -121,7 +120,9 @@ public class AbsensiKaryawan extends AppCompatActivity {
     public void Refresh() {
         try {
             Clear();
-            Cursor ct = SQLAbsensi.fetchDatabaseAllGroupedNameInsteadofID();
+            Cursor ct = SQLAbsensi.fetchDatabaseAll();
+            SQLiteforInformasiKaryawan dbx = new SQLiteforInformasiKaryawan(this);
+            Cursor cs = dbx.fetchDatabaseAll();
             if (ct.getCount() != 0) {
                 //for (int i = pageCountStartAt; i < pageCountEndAt; i++) {
                 int i = pageCountStartAt;
@@ -130,15 +131,32 @@ public class AbsensiKaryawan extends AppCompatActivity {
                 ct.moveToFirst();
                 while (j < k) {
                     try {
-                        String NAME = ct.getString(0);
-                        String DATE = ct.getString(1);
-                        String ABSENSI = ct.getString(2);
+                        cs.moveToFirst();
+                        boolean diditwork = false;
+                        try{
+                            String checkValue1 = cs.getString(0);
+                            String checkValue2 = ct.getString(0);
+                            while (!checkValue2.equals(checkValue1)){
+                                cs.moveToNext();
+                                checkValue1 = cs.getString(0);
+                            }
+                            IDTemp = checkValue1;
+                            diditwork = true;
+                        }catch(Exception ex){
 
-                        ChangeTextView(String.valueOf((j % 10) + 1), NAME, DATE, ABSENSI);
-                        id[(j%10)] = ct.getString(3);
-                        tanggal[j%10] = ct.getString(1);
-                        j++;
-                        ct.moveToNext();
+                        }
+                        if (diditwork == true) {
+                            String NAME = cs.getString(1);
+                            String DATE = ct.getString(1);
+                            TanggalTemp = ct.getString(1);
+                            String ABSENSI = ct.getString(2);
+
+                            ChangeTextView(String.valueOf((j % 10) + 1), NAME, DATE, ABSENSI);
+                            id[(j % 10)] = IDTemp;
+                            tanggal[j % 10] = TanggalTemp;
+                            j++;
+                            ct.moveToNext();
+                        }
                     } catch (Exception ex) {
                         if (i > ct.getCount()) {
                             j = k;
@@ -150,16 +168,16 @@ public class AbsensiKaryawan extends AppCompatActivity {
                 Clear();
             }
         } catch (Exception ex) {
-
+            Toast.makeText(this, ex.toString(), Toast.LENGTH_SHORT).show();
         }
     }
-    
+
     public void Clear() {
         for (int i = 0; i < 10; i++) {
             ChangeTextView(String.valueOf(i + 1), "---", "-", "--");
         }
     }
-    
+
     public void ChangeTextView(String inputs, String NamaContent, String TanggalContent, String JenisAbsensiContent) {
         switch (inputs) {
             case ("1"):
@@ -170,149 +188,148 @@ public class AbsensiKaryawan extends AppCompatActivity {
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent1);
                 myTextView.setText(TanggalContent);
-                
+
 
                 //Absensi
                 myTextView = (TextView) findViewById(R.id.JenisAbsensiContent1);
                 myTextView.setText(JenisAbsensiContent);
-                
+
                 break;
             case ("2"):
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent2);
                 myTextView.setText(NamaContent);
-                
+
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent2);
                 myTextView.setText(TanggalContent);
-                
+
                 //Absensi
                 myTextView = (TextView) findViewById(R.id.JenisAbsensiContent2);
                 myTextView.setText(JenisAbsensiContent);
-                
+
                 break;
             case ("3"):
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent3);
                 myTextView.setText(NamaContent);
-                
+
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent3);
                 myTextView.setText(TanggalContent);
-                
+
                 //Absensi
                 myTextView = (TextView) findViewById(R.id.JenisAbsensiContent3);
                 myTextView.setText(JenisAbsensiContent);
-                
+
                 break;
             case ("4"):
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent4);
                 myTextView.setText(NamaContent);
-                
+
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent4);
                 myTextView.setText(TanggalContent);
-                
+
                 //Absensi
                 myTextView = (TextView) findViewById(R.id.JenisAbsensiContent4);
                 myTextView.setText(JenisAbsensiContent);
-                
+
                 break;
             case ("5"):
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent5);
                 myTextView.setText(NamaContent);
-                
+
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent5);
                 myTextView.setText(TanggalContent);
-                
+
                 //Absensi
                 myTextView = (TextView) findViewById(R.id.JenisAbsensiContent5);
                 myTextView.setText(JenisAbsensiContent);
-                
+
                 break;
             case ("6"):
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent6);
                 myTextView.setText(NamaContent);
-                
+
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent6);
                 myTextView.setText(TanggalContent);
-                
+
                 //Absensi
                 myTextView = (TextView) findViewById(R.id.JenisAbsensiContent6);
                 myTextView.setText(JenisAbsensiContent);
-                
+
                 break;
             case ("7"):
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent7);
                 myTextView.setText(NamaContent);
-                
+
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent7);
                 myTextView.setText(TanggalContent);
-                
+
                 //Absensi
                 myTextView = (TextView) findViewById(R.id.JenisAbsensiContent7);
                 myTextView.setText(JenisAbsensiContent);
-                
+
                 break;
             case ("8"):
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent8);
                 myTextView.setText(NamaContent);
-                
+
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent8);
                 myTextView.setText(TanggalContent);
-                
+
                 //Absensi
                 myTextView = (TextView) findViewById(R.id.JenisAbsensiContent8);
                 myTextView.setText(JenisAbsensiContent);
-                
+
                 break;
             case ("9"):
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent9);
                 myTextView.setText(NamaContent);
-                
+
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent9);
                 myTextView.setText(TanggalContent);
-                
+
                 //Absensi
                 myTextView = (TextView) findViewById(R.id.JenisAbsensiContent9);
                 myTextView.setText(JenisAbsensiContent);
-                
+
                 break;
             case ("10"):
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent10);
                 myTextView.setText(NamaContent);
-                
+
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent10);
                 myTextView.setText(TanggalContent);
-                
+
                 //Absensi
                 myTextView = (TextView) findViewById(R.id.JenisAbsensiContent10);
                 myTextView.setText(JenisAbsensiContent);
-                
+
                 break;
         }
     }
-    
+
     //TextView Middle Clicked
     public void TextViewOnClick(View view) {
         Intent intent = new Intent(this, EditAbsensi.class);
         switch (view.getId()) {
             case (R.id.NamaContent1):
                 TextView t1 = findViewById(R.id.NamaContent1);
-                TextView t = findViewById(R.id.TanggalContent1);
                 if (t1.getText().toString() != "---") {
                     intent.putExtra("id", id[0]);
                     intent.putExtra("tanggal", tanggal[0]);

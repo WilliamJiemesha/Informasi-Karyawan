@@ -35,6 +35,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="Gaji Karyawan"
+        android:onClick="GajiOnClick"
         app:layout_constraintTop_toBottomOf="@+id/absensikaryawan"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

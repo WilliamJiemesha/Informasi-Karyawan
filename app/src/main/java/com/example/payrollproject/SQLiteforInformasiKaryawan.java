@@ -57,7 +57,7 @@ public class SQLiteforInformasiKaryawan extends SQLiteOpenHelper {
     }
     public Cursor fetchDatabaseAllActive(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from informasi_karyawan", null );
+        Cursor res =  db.rawQuery( "select * from informasi_karyawan where aktif = 1", null );
         return res;
     }
     public void DeleteKaryawan(int id){
