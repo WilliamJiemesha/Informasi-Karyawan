@@ -266,6 +266,7 @@ public class GajiKaryawan extends AppCompatActivity {
                             String strTwo = ct.getString(0);
                             while (!strOne.equals(strTwo)) {
                                 cu.moveToNext();
+                                strOne = cu.getString(0);
                             }
                             pembenar = true;
                             IDTemp = strOne;
@@ -274,11 +275,11 @@ public class GajiKaryawan extends AppCompatActivity {
                         }
                         if (pembenar == true) {
 
-                            String NAMA = ct.getString(0);
+                            String NAMA = cu.getString(1);
                             String GAJI = ct.getString(1);
                             String DATE = ct.getString(2);
 
-                            ChangeTextView(String.valueOf((j % 10) + 1), NAMA, GAJI, DATE);
+                            ChangeTextView(String.valueOf((j % 10) + 1), NAMA, DATE, GAJI);
                             ID[j % 10] = IDTemp;
                             Tanggal[j % 10] = DATE;
                             j++;
@@ -328,8 +329,9 @@ public class GajiKaryawan extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.action_add:
-//                Intent intent = new Intent(this, AddKaryawan.class);
-//                startActivity(intent);
+                finish();
+                Intent intent = new Intent(this, AddGaji.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -338,12 +340,13 @@ public class GajiKaryawan extends AppCompatActivity {
     
     //OnClickTextView
     public void TextViewOnClick(View view) {
-        Intent intent = new Intent(this, DeleteKaryawan.class); // Ganti Bangke
+        Intent intent = new Intent(this, EditGaji.class); // Ganti Bangke
         switch (view.getId()) {
             case (R.id.NamaContent1):
                 TextView t1 = findViewById(R.id.NamaContent1);
                 if (t1.getText().toString() != "---") {
                     intent.putExtra("id", ID[0]);
+                    intent.putExtra("tanggal", Tanggal[0]);
                     startActivity(intent);
                 }
                 break;
@@ -351,6 +354,7 @@ public class GajiKaryawan extends AppCompatActivity {
                 TextView t2 = findViewById(R.id.NamaContent2);
                 if (t2.getText().toString() != "---") {
                     intent.putExtra("id", ID[1]);
+                    intent.putExtra("tanggal", Tanggal[1]);
                     startActivity(intent);
                 }
                 break;
@@ -358,6 +362,7 @@ public class GajiKaryawan extends AppCompatActivity {
                 TextView t3 = findViewById(R.id.NamaContent3);
                 if (t3.getText().toString() != "---") {
                     intent.putExtra("id", ID[2]);
+                    intent.putExtra("tanggal", Tanggal[2]);
                     startActivity(intent);
                 }
                 break;
@@ -365,6 +370,7 @@ public class GajiKaryawan extends AppCompatActivity {
                 TextView t4 = findViewById(R.id.NamaContent4);
                 if (t4.getText().toString() != "---") {
                     intent.putExtra("id", ID[3]);
+                    intent.putExtra("tanggal", Tanggal[3]);
                     startActivity(intent);
                 }
                 break;
@@ -372,6 +378,7 @@ public class GajiKaryawan extends AppCompatActivity {
                 TextView t5 = findViewById(R.id.NamaContent5);
                 if (t5.getText().toString() != "---") {
                     intent.putExtra("id", ID[4]);
+                    intent.putExtra("tanggal", Tanggal[4]);
                     startActivity(intent);
                 }
                 break;
@@ -379,6 +386,7 @@ public class GajiKaryawan extends AppCompatActivity {
                 TextView t6 = findViewById(R.id.NamaContent6);
                 if (t6.getText().toString() != "---") {
                     intent.putExtra("id", ID[5]);
+                    intent.putExtra("tanggal", Tanggal[5]);
                     startActivity(intent);
                 }
                 break;
@@ -386,6 +394,7 @@ public class GajiKaryawan extends AppCompatActivity {
                 TextView t7 = findViewById(R.id.NamaContent7);
                 if (t7.getText().toString() != "---") {
                     intent.putExtra("id", ID[6]);
+                    intent.putExtra("tanggal", Tanggal[6]);
                     startActivity(intent);
                 }
                 break;
@@ -393,6 +402,7 @@ public class GajiKaryawan extends AppCompatActivity {
                 TextView t8 = findViewById(R.id.NamaContent8);
                 if (t8.getText().toString() != "---") {
                     intent.putExtra("id", ID[7]);
+                    intent.putExtra("tanggal", Tanggal[7]);
                     startActivity(intent);
                 }
                 break;
@@ -400,6 +410,7 @@ public class GajiKaryawan extends AppCompatActivity {
                 TextView t9 = findViewById(R.id.NamaContent9);
                 if (t9.getText().toString() != "---") {
                     intent.putExtra("id", ID[8]);
+                    intent.putExtra("tanggal", Tanggal[8]);
                     startActivity(intent);
                 }
                 break;
@@ -407,11 +418,12 @@ public class GajiKaryawan extends AppCompatActivity {
                 TextView t10 = findViewById(R.id.NamaContent10);
                 if (t10.getText().toString() != "---") {
                     intent.putExtra("id", ID[9]);
+                    intent.putExtra("tanggal", Tanggal[9]);
                     startActivity(intent);
                 }
                 break;
         }
-
+        finish();
     }
     
 }

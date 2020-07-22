@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GajiKaryawan">
+    tools:context=".AddGaji">
 
     <include
-        layout="@layout/toolbar"
-        android:id="@+id/toolbar"/>
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/TableLayoutTesting"
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:clickable="true"
-                android:text="Nama"
+                android:text="ID"
 
                 android:textSize="18dp" />
 
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
-                android:text="Gaji"
+                android:text="Nama"
 
                 android:textSize="18dp" />
 
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
-                android:text="Tanggal Gajian"
+                android:text="Tanggal Masuk"
 
                 android:textSize="18dp" />
         </TableRow>
@@ -59,20 +59,20 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/NamaContent1"
+                android:id="@+id/IDContent1"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
-                android:onClick="TextViewOnClick"
+
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/GajiContent1"
+                android:id="@+id/NamaContent1"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:text="-"
-
+                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -91,20 +91,20 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/NamaContent2"
+                android:id="@+id/IDContent2"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
-                android:onClick="TextViewOnClick"
+
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/GajiContent2"
+                android:id="@+id/NamaContent2"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:text="-"
-
+                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -123,20 +123,19 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/NamaContent3"
+                android:id="@+id/IDContent3"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
-                android:onClick="TextViewOnClick"
+
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/GajiContent3"
+                android:id="@+id/NamaContent3"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:text="-"
-
+                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -155,20 +154,20 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/NamaContent4"
+                android:id="@+id/IDContent4"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
-                android:onClick="TextViewOnClick"
+
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/GajiContent4"
+                android:id="@+id/NamaContent4"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:text="-"
-
+                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -187,20 +186,20 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/NamaContent5"
+                android:id="@+id/IDContent5"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
-                android:onClick="TextViewOnClick"
+
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/GajiContent5"
+                android:id="@+id/NamaContent5"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:text="-"
-
+                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -219,20 +218,20 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/NamaContent6"
+                android:id="@+id/IDContent6"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
-                android:onClick="TextViewOnClick"
+
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/GajiContent6"
+                android:id="@+id/NamaContent6"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:text="-"
-
+                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -251,20 +250,20 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/NamaContent7"
+                android:id="@+id/IDContent7"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
-                android:onClick="TextViewOnClick"
+
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/GajiContent7"
+                android:id="@+id/NamaContent7"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:text="-"
-
+                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -283,20 +282,20 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/NamaContent8"
+                android:id="@+id/IDContent8"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
-                android:onClick="TextViewOnClick"
+
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/GajiContent8"
+                android:id="@+id/NamaContent8"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:text="-"
-
+                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -315,20 +314,20 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/NamaContent9"
+                android:id="@+id/IDContent9"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
-                android:onClick="TextViewOnClick"
+
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/GajiContent9"
+                android:id="@+id/NamaContent9"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:text="-"
-
+                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -347,20 +346,20 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/NamaContent10"
+                android:id="@+id/IDContent10"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="---"
-                android:onClick="TextViewOnClick"
+
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/GajiContent10"
+                android:id="@+id/NamaContent10"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:text="-"
-
+                android:onClick="TextViewOnClick"
                 android:textSize="12dp" />
 
             <TextView
@@ -392,7 +391,6 @@
         android:text="@string/Left"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/TableLayoutTesting" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

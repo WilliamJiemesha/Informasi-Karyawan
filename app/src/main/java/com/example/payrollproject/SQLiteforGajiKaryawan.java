@@ -31,10 +31,9 @@ public class SQLiteforGajiKaryawan extends SQLiteOpenHelper {
         db.execSQL("create table gaji_karyawan" + "(id text, gaji text, tanggal text)");
     }
 
-    public void insertDatabase(String id, String tanggal, String absensi){
+    public void insertDatabase(String id, String gaji, String tanggal){
         SQLiteDatabase db = this.getWritableDatabase();
-
-        db.execSQL("INSERT INTO gaji_karyawan (id, tanggal, absensi) VALUES ('"+ id +"', '"+ tanggal +"', '"+ absensi +"')");
+        db.execSQL("INSERT INTO gaji_karyawan (id, tanggal, gaji) VALUES ('"+ id +"', '"+ tanggal +"', '"+ gaji +"')");
     }
 
     public Cursor fetchDatabaseAll(){
@@ -48,7 +47,7 @@ public class SQLiteforGajiKaryawan extends SQLiteOpenHelper {
         return res;
     }
 
-    public void DeleteAbsensi(int id, String tanggal){
+    public void DeleteGaji(int id, String tanggal){
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM gaji_karyawan WHERE id = "+ id + " AND tanggal = '"+ tanggal+"'");
     }

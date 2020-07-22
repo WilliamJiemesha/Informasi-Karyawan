@@ -327,6 +327,7 @@ public class AbsensiKaryawan extends AppCompatActivity {
     //TextView Middle Clicked
     public void TextViewOnClick(View view) {
         Intent intent = new Intent(this, EditAbsensi.class);
+        finish();
         switch (view.getId()) {
             case (R.id.NamaContent1):
                 TextView t1 = findViewById(R.id.NamaContent1);

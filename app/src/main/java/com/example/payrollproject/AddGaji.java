@@ -11,14 +11,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-public class InformasiKaryawan extends AppCompatActivity {
+public class AddGaji extends AppCompatActivity {
     TextView myTextView;
     SQLiteforInformasiKaryawan InformasiKaryawan;
     Button myButton;
@@ -96,142 +91,142 @@ public class InformasiKaryawan extends AppCompatActivity {
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent1);
                 myTextView.setText(IDContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent1);
                 myTextView.setText(NamaContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
 
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent1);
                 myTextView.setText(TanggalContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 break;
             case ("2"):
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent2);
                 myTextView.setText(IDContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent2);
                 myTextView.setText(NamaContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent2);
                 myTextView.setText(TanggalContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 break;
             case ("3"):
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent3);
                 myTextView.setText(IDContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent3);
                 myTextView.setText(NamaContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent3);
                 myTextView.setText(TanggalContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 break;
             case ("4"):
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent4);
                 myTextView.setText(IDContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent4);
                 myTextView.setText(NamaContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent4);
                 myTextView.setText(TanggalContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 break;
             case ("5"):
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent5);
                 myTextView.setText(IDContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent5);
                 myTextView.setText(NamaContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent5);
                 myTextView.setText(TanggalContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 break;
             case ("6"):
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent6);
                 myTextView.setText(IDContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent6);
                 myTextView.setText(NamaContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent6);
                 myTextView.setText(TanggalContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 break;
             case ("7"):
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent7);
                 myTextView.setText(IDContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent7);
                 myTextView.setText(NamaContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent7);
                 myTextView.setText(TanggalContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 break;
             case ("8"):
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent8);
                 myTextView.setText(IDContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent8);
                 myTextView.setText(NamaContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent8);
                 myTextView.setText(TanggalContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 break;
             case ("9"):
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent9);
                 myTextView.setText(IDContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent9);
                 myTextView.setText(NamaContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent9);
                 myTextView.setText(TanggalContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 break;
             case ("10"):
                 //ID
                 myTextView = (TextView) findViewById(R.id.IDContent10);
                 myTextView.setText(IDContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Nama
                 myTextView = (TextView) findViewById(R.id.NamaContent10);
                 myTextView.setText(NamaContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 //Tanggal
                 myTextView = (TextView) findViewById(R.id.TanggalContent10);
                 myTextView.setText(TanggalContent);
-                
+                myTextView.setGravity(Gravity.CENTER);
                 break;
 
 
@@ -297,31 +292,10 @@ public class InformasiKaryawan extends AppCompatActivity {
         }
         checkCountforButtonNextandPrevious();
     }
-
-    //Toolbar
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_add_only, menu);
-        return true;
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.action_add:
-                finish();
-                Intent intent = new Intent(this, AddKaryawan.class);
-                startActivity(intent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-
+    
     public void TextViewOnClick(View view) {
-        DeleteKaryawan dltkrywn = new DeleteKaryawan();
-        Intent intent = new Intent(this, DeleteKaryawan.class);
+        Intent intent = new Intent(this, AddGajiOnClicked.class);
+        finish();
         switch (view.getId()) {
             case (R.id.NamaContent1):
                 TextView t1 = findViewById(R.id.IDContent1);

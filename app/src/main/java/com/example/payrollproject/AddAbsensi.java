@@ -351,7 +351,7 @@ public class AddAbsensi extends AppCompatActivity {
                 }
                 break;
         }
-
+        finish();
     }
 
 }
