@@ -7,18 +7,25 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-
+    //Intents
+    Intent intentInformasiKaryawan, intentAbsensiKaryawan, intentGajiKaryawan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.mainactivity);
 
-        setTitle("Payroll Login");
-
+        //Declare Intents
+        intentInformasiKaryawan  = new Intent(this, InformasiKaryawan.class);
+        intentAbsensiKaryawan = new Intent(this, AbsensiKaryawan.class);
+        intentGajiKaryawan = new Intent(this, GajiKaryawan.class);
+        setTitle("Karyawan Menu");
     }
 
-    public void LoginbuttonOnClick(View view) {
-        Intent intent = new Intent(this, MainMenuActivity.class);
-        startActivity(intent);
+    public void InformasiKaryawanOnClick(View view) {
+        startActivity(intentInformasiKaryawan);
     }
+
+    public void AbsensiOnClick(View view) { startActivity(intentAbsensiKaryawan); }
+
+    public void GajiOnClick(View view) { startActivity(intentGajiKaryawan); }
 }

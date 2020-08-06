@@ -31,13 +31,13 @@ public class AbsensiKaryawan extends AppCompatActivity {
         //Toolbars
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        SQLAbsensi = new SQLiteforAbsensiKaryawan(this);
         //Set View
         myButton = (Button) findViewById(R.id.nextpagebutton);
         myButton.setVisibility(View.INVISIBLE);
         myButton = (Button) findViewById(R.id.previouspagebutton);
         myButton.setVisibility(View.INVISIBLE);
         firstDigit = 0;
-        SQLAbsensi = new SQLiteforAbsensiKaryawan(this);
         //Edit View
         checkCountforButtonNextandPrevious();
 
@@ -45,27 +45,27 @@ public class AbsensiKaryawan extends AppCompatActivity {
 
     //Previous and Next Button
     public void checkCountforButtonNextandPrevious() {
-        Cursor cs = SQLAbsensi.fetchDatabaseAll();
+        Cursor coo = SQLAbsensi.fetchDatabaseAll();
 
         //Page Next
         if (firstDigit != 0) {
             pageCountStartAt = firstDigit * 10;
-            int save = cs.getCount() / 10;
+            int save = coo.getCount() / 10;
             if (save < firstDigit) {
                 pageCountEndAt = (firstDigit + 1) * 10;
             } else {
-                pageCountEndAt = firstDigit * 10 + (cs.getCount() % 10);
+                pageCountEndAt = firstDigit * 10 + (coo.getCount() % 10);
                 myButton = (Button) findViewById(R.id.nextpagebutton);
                 myButton.setVisibility(View.INVISIBLE);
             }
         } else {
             pageCountStartAt = 0;
-            if (cs.getCount() > 10) {
+            if (coo.getCount() > 10) {
                 pageCountEndAt = 10;
                 myButton = (Button) findViewById(R.id.nextpagebutton);
                 myButton.setVisibility(View.VISIBLE);
             } else {
-                pageCountEndAt = cs.getCount();
+                pageCountEndAt = coo.getCount();
             }
         }
 

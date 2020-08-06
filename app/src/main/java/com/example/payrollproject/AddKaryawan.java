@@ -1,12 +1,16 @@
 package com.example.payrollproject;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,7 +21,7 @@ import java.sql.Date;
 
 public class AddKaryawan extends AppCompatActivity {
     SQLiteforInformasiKaryawan InformasiKaryawan;
-    InformasiKaryawan karyawan;
+    String date, Inputan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,27 +31,46 @@ public class AddKaryawan extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle("Add Karyawan");
-    }
+        CalendarView v;
+        v = findViewById(R.id.calendarInformasiKaryawan);
+        v.setOnDateChangeListener( new CalendarView.OnDateChangeListener() {
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                date = year + "-" + month + "-" + dayOfMonth;
 
-    public void ButtonAddOnClick(View view) {
-        EditText anotherEditText = (EditText) findViewById(R.id.edittextname);
-        if (anotherEditText.getText().toString().equals("")) {
-        } else {
-            EditText newEditText = (EditText) findViewById(R.id.edittexttanggalmasuk);
-            if (newEditText.getText().toString().equals("")) {
-            } else {
-                Cursor cu = InformasiKaryawan.fetchDatabaseAll();
-                InformasiKaryawan.insertDatabase(String.valueOf(cu.getCount() + 1), anotherEditText.getText().toString(), newEditText.getText().toString(), 1);
-                TextView mt = findViewById(R.id.edittexttanggalmasuk);
-                mt.setText("");
-                mt = findViewById(R.id.edittextname);
-                mt.setText("");
+                //Pop up Window Builder
+                AlertDialog.Builder builder = new AlertDialog.Builder(AddKaryawan.this);
+                builder.setTitle("Masukkan Jenis Absensi");
 
-                Intent in = new Intent(this, InformasiKaryawan.class);
-                Toast.makeText(this, "Inserted" + anotherEditText.getText().toString() + "To Database", Toast.LENGTH_SHORT).show();
-                startActivity(in);
-                finish();
+                // Set up the input
+                final EditText input = new EditText(AddKaryawan.this);
+                // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+                input.setInputType(InputType.TYPE_CLASS_TEXT);
+                input.setMaxEms(15);
+                builder.setView(input);
+
+                // Set up the buttons
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Inputan = input.getText().toString();
+                        Cursor cuu = InformasiKaryawan.fetchDatabaseAll();
+                        InformasiKaryawan.insertDatabase(String.valueOf(cuu.getCount() + 1), Inputan, date, 1);
+                        Toast.makeText(AddKaryawan.this, "Inserted "+ Inputan +" To Database", Toast.LENGTH_SHORT).show();
+                        Intent in = new Intent(AddKaryawan.this, InformasiKaryawan.class);
+                        startActivity(in);
+                        finish();
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.show();
+
             }
-        }
+        });
     }
 }
