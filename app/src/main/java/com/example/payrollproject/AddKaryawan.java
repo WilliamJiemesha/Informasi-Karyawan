@@ -28,7 +28,7 @@ public class AddKaryawan extends AppCompatActivity {
         setContentView(R.layout.activity_add_karyawan);
 
         InformasiKaryawan = new SQLiteforInformasiKaryawan(this);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle("Add Karyawan");
         CalendarView v;
@@ -39,7 +39,7 @@ public class AddKaryawan extends AppCompatActivity {
 
                 //Pop up Window Builder
                 AlertDialog.Builder builder = new AlertDialog.Builder(AddKaryawan.this);
-                builder.setTitle("Masukkan Jenis Absensi");
+                builder.setTitle("Masukkan Nama Karyawan");
 
                 // Set up the input
                 final EditText input = new EditText(AddKaryawan.this);
