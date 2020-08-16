@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Payroll Project</string>
+    <string name="app_name">InformasiKaryawan</string>
     <string name="username">Username</string>
     <string name="title_activity_informasi_karyawan">InformasiKaryawanActivity</string>
     <!-- Strings used for fragments for navigation -->
