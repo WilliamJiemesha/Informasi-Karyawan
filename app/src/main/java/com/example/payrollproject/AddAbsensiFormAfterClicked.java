@@ -47,6 +47,8 @@ public class AddAbsensiFormAfterClicked extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Inputan = input.getText().toString();
                         SQLITE.insertDatabase(id, date, Inputan);
+                        Intent intent = new Intent(AddAbsensiFormAfterClicked.this, AbsensiKaryawan.class);
+                        startActivity(intent);
                         finish();
                     }
                 });

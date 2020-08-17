@@ -110,6 +110,7 @@ public class AbsensiKaryawan extends AppCompatActivity {
                 //What happens after menu '+' is Clicked
                 Intent intention = new Intent(AbsensiKaryawan.this, AddAbsensi.class);
                 startActivity(intention);
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

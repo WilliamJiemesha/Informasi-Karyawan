@@ -279,6 +279,7 @@ public class AddAbsensi extends AppCompatActivity {
 
     public void TextViewOnClick(View view) {
         Intent intent = new Intent(this, AddAbsensiFormAfterClicked.class);
+        finish();
         switch (view.getId()) {
             case (R.id.NamaContent1):
                 TextView t1 = findViewById(R.id.IDContent1);
